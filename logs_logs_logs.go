@@ -4,16 +4,17 @@ import "strings"
 
 // Application identifies the application emitting the given log.
 func Application(log string) string {
-	if strings.Contains(log, "❗") {
-		return "recommendation"
-	}
 
-	if strings.Contains(log, "🔍") {
-		return "search"
-	}
+	for c := range log {
+		switch c {
+		case '❗':
+			return "recommendation"
+		case '🔍':
+			return "search"
+		case '☀':
+			return "weather"
+		}
 
-	if strings.Contains(log, "☀") {
-		return "weather"
 	}
 
 	return "default"
