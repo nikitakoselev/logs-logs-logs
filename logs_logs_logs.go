@@ -5,7 +5,7 @@ import "strings"
 // Application identifies the application emitting the given log.
 func Application(log string) string {
 
-	for c := range log {
+	for c := range []rune(log) {
 		switch c {
 		case '❗':
 			return "recommendation"
